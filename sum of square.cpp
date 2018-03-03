@@ -1,22 +1,16 @@
 #include<iostream>
 using namespace std;
-int summ(int a, int b);
+ 
 int main()
 {
-    int x,y;
-    cout<<"Enter a number X and Y ";
-    cin>>x;
-    summ(x,y);
-    cout<<'n';
-    system("pause");
-    return 0;
-}
-int summ(int a,int b)
-{
-    int sum;
-    for(a=0;a<=b;a++)
-    sum=a*a+b*b;
-    cout<<"Output: "<<sum;
-    return sum;
-  
+    int n,num,sum=0;
+    cout<<"Enter the number : ";
+    cin>>n;
+    num=n;
+    while(num != 0)
+    {
+        sum=sum+num%10;
+        num=num/10;
+    }
+    cout<<val<<<< sum;
 }
