@@ -1,26 +1,41 @@
-#include<iostream>
-using namespace std;
-
+#include <stdio.h>
 int main()
- {
-  int i,arr[20],j,no;
-  cout<<"Enter Size of array: ";
-  cin>>no;
-  cout<<"Enter any "<<no<<" num in array: ";
-  for(i=0;i<no;i++)
-  {
-   cin>>arr[i];
-  }
-  cout<<"Dublicate Values are: ";
-  for(i=0; i<no; i++)
-   {
-    for(j=i+1;j<no;j++)
+{
+    int array[50];
+    int *ptr;
+    int i, j, k, size, n;
+    printf("\n Enter size of the array: ");
+    scanf("%d", &n);
+    printf("\n Enter %d elements of an array: ", n);
+    for (i = 0; i < n; i++)
+    scanf("%d", &array[i]);
+    size = n;
+    ptr = array;
+    for (i = 0; i < size; i++)
     {
-    if(arr[i]==arr[j])
-    {
-    cout<<"\n"<<arr[i];
+        for (j = 0; j < size; j++)
+        {
+            if (i == j)
+            {
+                continue;
+            }
+            else if (*(ptr + i) == *(ptr + j))
+            {
+                k = j;
+                size--;
+                while (k < size)
+                {
+                    *(ptr + k) = *(ptr + k + 1);
+                    k++;
+                }
+                j = 0;
+            }
+        }
     }
-   }
-   }
-  return 0;
- }
+    printf("\n The array after removing duplicates is: ");
+    for (i = 0; i < size; i++)
+    {
+        printf(" %d", array[i]);
+    }
+    return 0;
+}
